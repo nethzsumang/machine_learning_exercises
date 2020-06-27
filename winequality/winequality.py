@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.decomposition import PCA
-from sklearn.linear_model import LinearRegression
+from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import confusion_matrix
 
 # load data
@@ -60,24 +60,23 @@ most_important_names = [feature_list[most_important[i]] for i in range(n_compone
 principal_component_names = {'PC{}'.format(i): most_important_names[i] for i in range(n_components)}
 
 # the principal components are: total sulfur dioxide, density, citric acid, sulphates, residual sugar and pH
-# now let's try to train a linear regression model.
+# now let's try to train a logistic regression model.
 train_x_df = pd.DataFrame(train_x, columns=feature_list)
-linear_model = LinearRegression()
-linear_model.fit(train_x_df[most_important_names], train_y)
+logistic_model = LogisticRegression()
+logistic_model.fit(train_x_df[most_important_names], train_y)
 
 # now let's predict from the test set.
 test_x_df = pd.DataFrame(test_x, columns=feature_list)
-y_hat = linear_model.predict(test_x_df[most_important_names])
-y_hat = [1 if value >= 0.5 else 0 for value in y_hat]
+y_hat = logistic_model.predict(test_x_df[most_important_names])
 
 # compute confusion matrix
 confusion_matrix = confusion_matrix(test_y, y_hat)
 # Confusion matrix outputs TP, FP, TN, FN
 # Results are:
-# TP = 1962
-# TN = 611
-# FP = 15
-# FN = 11
+# TP = 1957
+# TN = 613
+# FP = 13
+# FN = 16
 n_samples = sum(sum(confusion_matrix))
 accuracy = (confusion_matrix[0, 0] + confusion_matrix[1, 1]) / n_samples
 sensitivity = confusion_matrix[0, 0] / (confusion_matrix[0, 0] + confusion_matrix[0, 1])
@@ -87,6 +86,6 @@ print("Sensitivity: " + str(sensitivity))
 print("Specificity: " + str(specificity))
 
 # Results:
-# Accuracy: 0.9899961523662947
-# Sensitivity: 0.9944247339077547
-# Specificity: 0.9760383386581469
+# Accuracy: 0.9888418622547134
+# Sensitivity: 0.9918905220476432
+# Specificity: 0.9792332268370607

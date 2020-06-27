@@ -3,4 +3,4 @@
 * Data Source: https://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/
 * Algorithms used:
     * PCA
-    * Linear Regression
+    * Logistic Regression
