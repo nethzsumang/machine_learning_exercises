@@ -36,7 +36,7 @@ x = StandardScaler().fit_transform(x)
 train_x, test_x, train_y, test_y = train_test_split(x, y, test_size=0.4, random_state=0)
 
 '''
-    For really big feature set, like MNIST dataset, that has 784 features, it will
+    For a really big feature set, like MNIST dataset, that has 784 features, it will
 take a really long time to fit a model for prediction using all of its features.
     For this problem, we will perform Principal Component Analysis (or PCA) to find out what
 features will take the most importance in determining the classification of wine.
