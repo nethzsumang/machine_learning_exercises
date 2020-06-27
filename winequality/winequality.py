@@ -8,8 +8,8 @@ from sklearn.linear_model import LinearRegression
 from sklearn.metrics import confusion_matrix
 
 # load data
-data_wine_white = pd.read_csv("data/winequality/winequality-white.csv", sep=";")
-data_wine_red = pd.read_csv("data/winequality/winequality-red.csv", sep=";")
+data_wine_white = pd.read_csv("data/winequality-white.csv", sep=";")
+data_wine_red = pd.read_csv("data/winequality-red.csv", sep=";")
 
 # add type column
 # white = 0, red = 1
