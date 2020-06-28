@@ -71,7 +71,7 @@ y_hat = logistic_model.predict(test_x_df[most_important_names])
 
 # compute confusion matrix
 confusion_matrix = confusion_matrix(test_y, y_hat)
-# Confusion matrix outputs TP, FP, TN, FN
+# Confusion matrix outputs [[TP, FN],[FP, TN]]
 # Results are:
 # TP = 1957
 # TN = 613
