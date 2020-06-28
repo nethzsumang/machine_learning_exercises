@@ -6,3 +6,9 @@
     * Logistic Regression
     * k-Nearest Neighbors (kNN)
     * Decision Tree
+
+### Breast Cancer Prediction
+* Data Source: `sklearn.datasets.load_breast_cancer()`
+* Algorithms used:
+    * PCA
+    * Logistic Regression
