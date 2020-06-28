@@ -5,3 +5,4 @@
     * PCA
     * Logistic Regression
     * k-Nearest Neighbors (kNN)
+    * Decision Tree
